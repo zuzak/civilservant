@@ -9,7 +9,7 @@
     "danharibo <danharibo@gmail.com>"
   ],
   "scripts": {
-    "test": "npm run lint",
+    "test": "mocha test/modules",
     "lint": "node_modules/standard/bin/cmd.js"
   },
   "license": "ISC",
@@ -53,9 +53,10 @@
     "youtube-search": "^1.0.4"
   },
   "devDependencies": {
+    "assert": "^1.4.1",
     "extract-comments": "^0.8.6",
     "jshint": "^2.5.4",
-    "mocha": "^2.3.4",
+    "mocha": "^2.5.3",
     "node-dir": "^0.1.11",
     "precommit-hook": "^1.0.7",
     "standard": "^10.0.3"

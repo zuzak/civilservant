@@ -1,0 +1,29 @@
+const path = require('path') // core
+
+const moduleLoader = require('../modules.js')
+module.exports = self = {
+  config: {get => null},
+  commands: {},
+  loadModule: function (module) {
+    moduleLoader.loadModule(self, path.join('../modules/', module))
+  },
+  runCommand: function (text, moduleName) {
+    const bot = {
+      say: function (to, sayMsg) {
+        reply += sayMsg
+      }
+    }
+
+    const msg = {
+      body: text.substr(text.indexOf(' ' + 1)),
+      args: text.substr(1).split(' '),
+      nick: 'test',
+      to: '#test',
+      message: null // normally the raw event from IRC
+    }
+
+    //const module = require('../modules/' + moduleName)
+
+    return self.commands[msg.args[0]].command(bot, msg)
+  }
+}
